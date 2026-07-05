@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Box AI Chatbot | Deterministic Rule-Based Chat</title>
+    <meta name="description" content="A 100% predictable, rule-based AI chatbot built with Flask and styled with premium glassmorphism dark mode.">
+    <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar containing specs and information -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon"><i class="fa-solid fa-microchip"></i></div>
+                <div class="logo-text">
+                    <h2>WhiteBox AI</h2>
+                    <span>Deterministic Chatbot v1.0</span>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="spec-section">
+                <h3><i class="fa-solid fa-circle-check"></i> Traceability Specs</h3>
+                <ul class="spec-list">
+                    <li>
+                        <span class="spec-label">Algorithm</span>
+                        <span class="spec-value">Hash Map O(1)</span>
+                    </li>
+                    <li>
+                        <span class="spec-label">Sanitization</span>
+                        <span class="spec-value">.lower().strip()</span>
+                    </li>
+                    <li>
+                        <span class="spec-label">Logic Gate</span>
+                        <span class="spec-value">Atomic .get()</span>
+                    </li>
+                    <li>
+                        <span class="spec-label">Hallucination Risk</span>
+                        <span class="spec-value risk-zero">0.00%</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="instructions-section">
+                <h3><i class="fa-solid fa-circle-info"></i> How it works</h3>
+                <p>The chatbot normalizes user inputs and references them against a hardcoded lookup dictionary on the backend. This guarantees zero hallucination risk and absolute predictability.</p>
+            </div>
+
+            <div class="sidebar-footer">
+                <p>Powered by Flask & Vanilla CSS</p>
+                <p class="copyright">&copy; 2026 Decode Labs</p>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <!-- Chat Header -->
+            <header class="chat-header">
+                <div class="bot-info">
+                    <div class="bot-avatar">
+                        <i class="fa-solid fa-robot"></i>
+                        <span class="status-indicator online"></span>
+                    </div>
+                    <div>
+                        <h2>Deterministic Agent</h2>
+                        <p class="status-text">Active Session</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <button id="exit-btn-top" title="Exit Chat Session">
+                        <i class="fa-solid fa-right-from-bracket"></i> Exit Session
+                    </button>
+                </div>
+            </header>
+
+            <!-- Chat History Area -->
+            <div class="chat-history" id="chat-history">
+                <div class="message bot-message">
+                    <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+                    <div class="message-content-wrapper">
+                        <div class="message-content">
+                            Hello! I am a Rule-Based Chatbot. I match your queries directly against my knowledge base with 100% precision. 
+                            <br><br>
+                            Try using one of the suggestion chips below or ask me a question!
+                        </div>
+                        <span class="timestamp">Just now</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suggestion Chips -->
+            <div class="suggestions-container" id="suggestions-container">
+                <button class="suggest-chip" data-intent="hello">Hello</button>
+                <button class="suggest-chip" data-intent="help">Help</button>
+                <button class="suggest-chip" data-intent="about">About Bot</button>
+                <button class="suggest-chip" data-intent="features">Features</button>
+                <button class="suggest-chip" data-intent="contact">Contact Decode</button>
+            </div>
+
+            <!-- Chat Input Area -->
+            <footer class="chat-footer">
+                <form id="chat-form" class="chat-form">
+                    <input type="text" id="chat-input" placeholder="Type a message or command (e.g. 'help')..." autocomplete="off" required>
+                    <button type="submit" id="send-btn" title="Send message">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Exit Overlay Modal -->
+    <div class="overlay" id="exit-overlay">
+        <div class="modal-card">
+            <div class="modal-icon"><i class="fa-solid fa-power-off"></i></div>
+            <h2>Session Terminated</h2>
+            <p>You have successfully exited the active session. The logic state has reset.</p>
+            <button id="restart-btn"><i class="fa-solid fa-rotate-left"></i> Restart Session</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
